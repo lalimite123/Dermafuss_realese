@@ -40,7 +40,7 @@ export function ServicesSection() {
                 >
                 <Card className="relative overflow-hidden h-[450px] group shadow-lg transition-transform duration-300 hover:scale-[1.03] service-card">
                     <img
-                        src="/1.jpg"
+                        src="/2.jpg"
                         alt="Nagelbehandlung"
                         className="absolute inset-0 w-full h-full object-cover"
                     />
@@ -67,7 +67,7 @@ export function ServicesSection() {
                 >
                 <Card className="relative overflow-hidden h-[450px] group shadow-lg transition-transform duration-300 hover:scale-[1.03] service-card">
                     <img
-                        src="/2.jpg"
+                        src="/1.jpg"
                         alt="Fußmassage"
                         className="absolute inset-0 w-full h-full object-cover"
                     />
