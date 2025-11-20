@@ -2,10 +2,17 @@
 
 import { Card } from "@/components/ui/card"
 import { Heart, Shield, Sparkles, Award } from "lucide-react"
+import { motion } from "framer-motion"
 
 export function PhilosophySection() {
   return (
-      <div className="space-y-6 mt-19">
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="space-y-6 mt-19"
+      >
       <div>
         <h2 className="text-3xl lg:text-4xl font-bold mb-3 text-balance">Unsere Philosophie</h2>
         <p className="text-muted-foreground text-lg text-pretty leading-relaxed">
@@ -81,6 +88,6 @@ export function PhilosophySection() {
           </p>
         </Card>
       </div>
-    </div>
+      </motion.div>
   )
 }

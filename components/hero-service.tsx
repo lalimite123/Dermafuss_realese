@@ -4,10 +4,11 @@ import { Star, Users, Eye, ChevronLeft, ChevronRight, Sparkles } from "lucide-re
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import { useEffect, useState } from "react"
+import { motion } from "framer-motion"
 import useEmblaCarousel from "embla-carousel-react"
 
 const HeroService = () => {
-  const images = ["/landing1.jpg", "/landing2.jpg", "/landing3.jpg", "/landing4.jpg"]
+  const images = ["/landing1.jpg", "/landing2.jpg", "/landing3.jpg", "/landing4.jpg", "/galerie1.jpg", "/galerie2.jpg", "/galerie3.jpg", "/galerie4.jpg", "/galerie5.jpg"]
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
   const [currentSlide, setCurrentSlide] = useState(0)
   const totalSlides = images.length
@@ -23,7 +24,6 @@ const HeroService = () => {
       emblaApi.off("select", onSelect)
     }
   }, [emblaApi])
-//ajoute de temps pour le carousel des images
   useEffect(() => {
     if (!emblaApi) return
     const id = setInterval(() => {
@@ -35,7 +35,13 @@ const HeroService = () => {
   const services = ["Medizinische Fußpflege", "Nagelkorrektur", "Hornhautentfernung", "Diabetische Fußpflege"]
 
   return (
-      <div className="relative w-full max-w-6xl mx-auto h-full min-h-[400px] sm:min-h-[600px] rounded-2xl overflow-hidden shadow-[var(--shadow-card)] group">
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="relative w-full max-w-6xl mx-auto h-full min-h-[400px] sm:min-h-[600px] rounded-2xl overflow-hidden shadow-[var(--shadow-card)] group"
+      >
           <div className="overflow-hidden h-full" ref={emblaRef}>
             <div className="flex h-full">
               {images.map((src, idx) => (
@@ -99,7 +105,7 @@ const HeroService = () => {
               </div>
             </div>
           </div>
-      </div>
+      </motion.div>
   )
 }
 

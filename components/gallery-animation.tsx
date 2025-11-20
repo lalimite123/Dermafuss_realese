@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface ExpandableGalleryProps {
@@ -6,7 +6,16 @@ interface ExpandableGalleryProps {
     className?: string;
 }
 
-export const ExpandableGallery: React.FC<ExpandableGalleryProps> = ({ images, className = '' }) => {
+export const ExpandableGallery: React.FC<ExpandableGalleryProps> = ({ images = [
+    '/galerie1.jpg',
+    '/galerie2.jpg',
+    '/galerie3.jpg',
+    '/galerie4.jpg',
+    '/galerie5.jpg',
+    '/landing1.jpg',
+    '/landing2.jpg',
+    '/landing3.jpg',
+], className = '' }) => {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
@@ -31,6 +40,26 @@ export const ExpandableGallery: React.FC<ExpandableGalleryProps> = ({ images, cl
             setSelectedIndex((selectedIndex - 1 + images.length) % images.length);
         }
     };
+
+    useEffect(() => {
+        if (selectedIndex !== null) {
+            const onKey = (e: KeyboardEvent) => {
+                if (e.key === 'Escape') {
+                    setSelectedIndex(null);
+                } else if (e.key === 'ArrowRight') {
+                    setSelectedIndex((prev) => prev !== null ? (prev + 1) % images.length : prev);
+                } else if (e.key === 'ArrowLeft') {
+                    setSelectedIndex((prev) => prev !== null ? (prev - 1 + images.length) % images.length : prev);
+                }
+            };
+            document.body.style.overflow = 'hidden';
+            window.addEventListener('keydown', onKey);
+            return () => {
+                window.removeEventListener('keydown', onKey);
+                document.body.style.overflow = '';
+            };
+        }
+    }, [selectedIndex, images.length]);
 
     const getFlexValue = (index: number) => {
         if (hoveredIndex === null) {
@@ -76,7 +105,7 @@ export const ExpandableGallery: React.FC<ExpandableGalleryProps> = ({ images, cl
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-50 flex items-center justify-center dark:bg-black bg-white bg-opacity-95 p-4"
+                        className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
                         onClick={closeImage}
                     >
                         {/* Close Button */}
@@ -122,19 +151,28 @@ export const ExpandableGallery: React.FC<ExpandableGalleryProps> = ({ images, cl
                         )}
 
                         {/* Image */}
-                        <motion.div
-                            className="relative max-w-5xl max-h-[90vh] w-full"
-                            onClick={(e) => e.stopPropagation()}
-                        >
+                    <motion.div
+                        className="relative max-w-5xl max-h-[90vh] w-full"
+                        onClick={(e) => e.stopPropagation()}
+                    >
                             <motion.img
                                 key={selectedIndex}
                                 src={images[selectedIndex]}
                                 alt={`Gallery image ${selectedIndex + 1}`}
-                                className="w-full h-full object-contain rounded-md"
+                                className="w-full h-full object-contain rounded-xl shadow-2xl"
                                 initial={{ opacity: 0, scale: 0.8 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.8 }}
                                 transition={{ duration: 0.3 }}
+                                drag="x"
+                                dragElastic={0.1}
+                                onDragEnd={(e, info) => {
+                                    if (info.offset.x < -40) {
+                                        setSelectedIndex((prev) => prev !== null ? (prev + 1) % images.length : prev);
+                                    } else if (info.offset.x > 40) {
+                                        setSelectedIndex((prev) => prev !== null ? (prev - 1 + images.length) % images.length : prev);
+                                    }
+                                }}
                             />
                         </motion.div>
 
@@ -160,9 +198,21 @@ export const ExpandableGallery: React.FC<ExpandableGalleryProps> = ({ images, cl
                             </button>
                         )}
 
-                        {/* Image Counter */}
-                        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-sm dark:bg-black bg-white bg-opacity-50 px-4 py-2 rounded-md">
-                            {selectedIndex + 1} / {images.length}
+                        <div className="absolute bottom-4 left-0 right-0 px-4 flex flex-col items-center gap-3">
+                            <div className="text-white text-xs bg-white/10 backdrop-blur-sm px-3 py-1 rounded-md">
+                                {selectedIndex + 1} / {images.length}
+                            </div>
+                            <div className="max-w-5xl w-full flex gap-2 overflow-x-auto py-1">
+                                {images.map((src, i) => (
+                                    <button
+                                        key={i}
+                                        onClick={(e) => { e.stopPropagation(); setSelectedIndex(i); }}
+                                        className={`h-14 w-20 flex-shrink-0 rounded-md overflow-hidden border ${selectedIndex === i ? 'border-primary' : 'border-white/30'}`}
+                                    >
+                                        <img src={src} alt={`Thumb ${i + 1}`} className="h-full w-full object-cover" />
+                                    </button>
+                                ))}
+                            </div>
                         </div>
                     </motion.div>
                 )}

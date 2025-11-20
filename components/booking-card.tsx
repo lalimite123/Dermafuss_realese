@@ -3,6 +3,7 @@
 import { Search, Maximize2, Calendar, MapPin, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { motion } from "framer-motion"
 
 const BookingCard = () => {
   const scrollToBooking = () => {
@@ -25,7 +26,13 @@ const BookingCard = () => {
   const mapUrl = `https://www.google.com/maps/search/?api=1&query=${mapQuery}`
 
   return (
-    <div className="bg-muted/50 rounded-3xl p-8 shadow-[var(--shadow-card)] relative overflow-hidden h-full flex flex-col">
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="bg-muted/50 rounded-3xl p-8 shadow-[var(--shadow-card)] relative overflow-hidden h-full flex flex-col"
+    >
       <div className="absolute top-0 right-0 w-64 h-64 bg-accent/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
 
       <div className="relative z-10 flex-1 flex flex-col">
@@ -93,7 +100,7 @@ const BookingCard = () => {
           </span>
         </a>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

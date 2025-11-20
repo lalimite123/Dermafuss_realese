@@ -3,6 +3,7 @@
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Star, Clock, DollarSign } from "lucide-react"
+import { motion } from "framer-motion"
 
 const services = [
   {
@@ -45,7 +46,12 @@ const services = [
 
 export function ServiceCards() {
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+    >
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-2xl font-bold">Popular Treatments</h2>
         <Badge variant="secondary" className="text-sm">
@@ -55,15 +61,21 @@ export function ServiceCards() {
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         {services.map((service, index) => (
-          <Card
+          <motion.div
             key={index}
-            className="overflow-hidden border-border shadow-lg group cursor-pointer transition-all hover:shadow-xl hover:-translate-y-1"
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+          >
+          <Card
+            className="overflow-hidden border-border shadow-lg group cursor-pointer transition-transform duration-300 hover:shadow-xl hover:-translate-y-[2px]"
           >
             <div className="relative aspect-[4/3] overflow-hidden">
               <img
                 src={service.image || "/placeholder.svg"}
                 alt={service.title}
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
               />
               <div className="absolute top-3 left-3">
                 <Badge className="bg-primary text-primary-foreground">{service.category}</Badge>
@@ -100,8 +112,9 @@ export function ServiceCards() {
               </div>
             </div>
           </Card>
+          </motion.div>
         ))}
       </div>
-    </div>
+    </motion.div>
   )
 }
