@@ -3,6 +3,7 @@
 import { Card } from "@/components/ui/card"
 import { ExpandableGallery } from "@/components/gallery-animation"
 import { useEffect } from "react"
+import { motion } from "framer-motion"
 
 export function ServicesSection() {
     useEffect(() => {
@@ -22,9 +23,22 @@ export function ServicesSection() {
             </div>
 
             {/* Bento Grid Layout */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="grid grid-cols-1 lg:grid-cols-12 gap-6"
+            >
                 {/* Large Featured Image - Nail Treatment */}
-                <Card className="lg:col-span-7 relative overflow-hidden h-[450px] group shadow-lg transition-transform duration-300 hover:scale-105 service-card">
+                <motion.div
+                    initial={{ opacity: 0, x: -40, scale: 0.98 }}
+                    whileInView={{ opacity: 1, x: 0, scale: 1 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.5, ease: "easeOut", delay: 0.05 }}
+                    className="lg:col-span-7"
+                >
+                <Card className="relative overflow-hidden h-[450px] group shadow-lg transition-transform duration-300 hover:scale-[1.03] service-card">
                     <img
                         src="/1.jpg"
                         alt="Nagelbehandlung"
@@ -41,9 +55,17 @@ export function ServicesSection() {
                         </div>
                     </div>
                 </Card>
+                </motion.div>
 
                 {/* Right Column - Stacked Images */}
-                <Card className="lg:col-span-5 relative overflow-hidden h-[450px] group shadow-lg transition-transform duration-300 hover:scale-105 service-card">
+                <motion.div
+                    initial={{ opacity: 0, x: 40, scale: 0.98 }}
+                    whileInView={{ opacity: 1, x: 0, scale: 1 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
+                    className="lg:col-span-5"
+                >
+                <Card className="relative overflow-hidden h-[450px] group shadow-lg transition-transform duration-300 hover:scale-[1.03] service-card">
                     <img
                         src="/2.jpg"
                         alt="Fußmassage"
@@ -60,9 +82,17 @@ export function ServicesSection() {
                         </div>
                     </div>
                 </Card>
+                </motion.div>
 
                 {/* Brand Story Card with Gradient */}
-                <Card className="lg:col-span-5 relative overflow-hidden h-[400px] shadow-lg bg-gradient-to-br from-primary via-primary/90 to-primary/70 p-6 lg:p-8 flex flex-col justify-between service-card">
+                <motion.div
+                    initial={{ opacity: 0, x: 40, scale: 0.98 }}
+                    whileInView={{ opacity: 1, x: 0, scale: 1 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+                    className="lg:col-span-5"
+                >
+                <Card className="relative overflow-hidden h-[400px] shadow-lg bg-gradient-to-br from-primary via-primary/90 to-primary/70 p-6 lg:p-8 flex flex-col justify-between service-card transition-transform duration-300 hover:scale-[1.03]">
                     <div className="space-y-4">
                         <div className="text-5xl font-bold text-white tracking-tight">DF</div>
                         <div className="space-y-3">
@@ -78,9 +108,17 @@ export function ServicesSection() {
                     </div>
                     <div className="text-white/60 text-xs font-mono">FACHFUSSPLEGE IN LOLLAR</div>
                 </Card>
+                </motion.div>
 
                 {/* Info Card with Technical Details */}
-                <Card className="lg:col-span-7 relative overflow-hidden h-[400px] shadow-lg bg-gradient-to-br from-muted/50 via-muted/30 to-background p-6 lg:p-8 flex flex-col justify-between service-card">
+                <motion.div
+                    initial={{ opacity: 0, x: -40, scale: 0.98 }}
+                    whileInView={{ opacity: 1, x: 0, scale: 1 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+                    className="lg:col-span-7"
+                >
+                <Card className="relative overflow-hidden h-[400px] shadow-lg bg-gradient-to-br from-muted/50 via-muted/30 to-background p-6 lg:p-8 flex flex-col justify-between service-card transition-transform duration-300 hover:scale-[1.03]">
                     <div className="space-y-6">
                         <div className="grid grid-cols-2 gap-x-8 gap-y-4 text-sm">
                             <div>
@@ -131,7 +169,8 @@ export function ServicesSection() {
                         <span>LOLLAR · GIESENER STR. 10</span>
                     </div>
                 </Card>
-            </div>
+                </motion.div>
+            </motion.div>
 
             {/* Galerie des anderen Services */}
             <div className="mt-12 space-y-4">
@@ -139,11 +178,14 @@ export function ServicesSection() {
                 <p className="text-muted-foreground">Entdecken Sie unsere anderen Leistungen in Bildern.</p>
                 <ExpandableGallery
                     images={[
-                        "/hydrafacial-luxury-spa.jpg",
-                        "/keratin-hair-treatment-salon.jpg",
-                        "/microdermabrasion-beauty-treatment.jpg",
-                        "/professional-foot-care-treatment-spa-luxury-wellne.jpg",
-                        "/hot-stone-massage.png",
+                        "/galerie1.jpg",
+                        "/galerie2.jpg",
+                        "/galerie3.jpg",
+                        "/galerie4.jpg",
+                        "/galerie5.jpg",
+                        "/landing1.jpg",
+                        "/landing2.jpg",
+                        "/landing3.jpg",
                     ]}
                     className="w-full"
                 />
