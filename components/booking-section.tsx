@@ -355,7 +355,7 @@ export function BookingSection() {
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                           required
-                          placeholder="0157 845 236 71"
+                          placeholder="+49 1556 572 5090"
                         />
                       </div>
 
@@ -407,7 +407,7 @@ export function BookingSection() {
                           {loading ? "Wird gesendet…" : "Termin bestätigen"}
                         </Button>
                         <Button variant="outline" className="w-full" size="lg" asChild>
-                          <a href="https://wa.me/4915784523671" target="_blank" rel="noopener noreferrer">
+                          <a href="https://wa.me/4915565725090" target="_blank" rel="noopener noreferrer">
                             WhatsApp kontaktieren
                           </a>
                         </Button>
@@ -428,7 +428,7 @@ export function BookingSection() {
                 <AlertCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                 <p>
                   Termine können auch telefonisch oder per WhatsApp unter{" "}
-                  <strong className="text-foreground">0157 845 236 71</strong> vereinbart werden.
+                  <strong className="text-foreground">+49 1556 572 5090</strong> vereinbart werden.
                 </p>
               </div>
               <div className="flex items-start gap-3">

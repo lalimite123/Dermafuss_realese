@@ -17,29 +17,27 @@ export default function Home() {
       <main className="container mx-auto px-4 py-6 lg:px-8">
         <div className="grid gap-4 lg:gap-6">
           {/* Hero Section */}
-          <section id="home" className="mt-5">
+          <section id="home" className="mt-0">
             <HeroSection />
           </section>
-
           
-
           {/* Services Section */}
-          <section id="services" className="mt-16">
+          <section id="services" className="mt-0">
             <ServicesSection />
           </section>
 
           {/* About Section */}
-          <section id="about" className="mt-02">
+          <section id="about" className="mt-0">
             <AboutSection />
           </section>
 
           {/* Philosophy & Hygiene */}
-           <section id="philosophy" className="mt-16">
+           <section id="philosophy" className="mt-0">
             <PhilosophySection />
           </section> 
 
           {/* Testimonials */}
-          <section id="testimonials">
+          <section id="testimonials" className="mt-0">
             <TestimonialSection />
           </section>
 

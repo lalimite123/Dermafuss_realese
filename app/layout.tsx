@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Dermafuss Berlin | Professionelle Fußpflege & Medizinische Pediküre",
-    description: "Ihre Experten für medizinische Fußpflege in Geißen. Jetzt Termin vereinbaren!",
+    description: "Ihre Experten für medizinische Fußpflege in Berlin. Jetzt Termin vereinbaren!",
     images: ["/kevinelogo.png"],
   },
   icons: {

@@ -6,23 +6,23 @@
 :root {
   /* DermaFuß teal & gray professional palette */
   --background: oklch(0.98 0.008 180);
-  --foreground: oklch(0.28 0.01 0);
-  --card: oklch(0.995 0.005 180);
-  --card-foreground: oklch(0.28 0.01 0);
-  --popover: oklch(0.995 0.005 180);
-  --popover-foreground: oklch(0.28 0.01 0);
-  --primary: oklch(0.71 0.04 170);
+  --foreground: oklch(0.2 0.012 10);
+  --card: oklch(0.975 0.008 180);
+  --card-foreground: oklch(0.2 0.012 10);
+  --popover: oklch(0.975 0.008 180);
+  --popover-foreground: oklch(0.2 0.012 10);
+  --primary: oklch(45.836% 0.12949 144.006);
   --primary-foreground: oklch(0.99 0.005 180);
   --secondary: oklch(0.88 0.015 170);
   --secondary-foreground: oklch(0.28 0.01 0);
-  --muted: oklch(0.94 0.01 180);
-  --muted-foreground: oklch(0.55 0.02 0);
+  --muted: oklch(0.92 0.015 180);
+  --muted-foreground: oklch(0.42 0.02 0);
   --accent: oklch(0.71 0.04 170);
   --accent-foreground: oklch(0.99 0.005 180);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.9 0.01 170);
-  --input: oklch(0.95 0.008 180);
+  --border: oklch(0.84 0.02 170);
+  --input: oklch(0.93 0.012 180);
   --ring: oklch(0.71 0.04 170);
   --chart-1: oklch(0.71 0.04 170);
   --chart-2: oklch(0.82 0.02 180);

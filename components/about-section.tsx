@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button"
 import { Heart, Award, Shield, Sparkles } from "lucide-react"
 import { useEffect, useRef } from "react"
 import { motion } from "framer-motion"
-//import { GooeyText } from "@/components/ui/gooey-text"
 
 const features = [
     {
@@ -65,76 +64,77 @@ export function AboutSection() {
         return () => observer.disconnect()
     }, [])
 
-  return (
-    <div ref={containerRef} className="py-20">
-      {/* Bannière concise avec fond et 3 cartes */}
-      <div className="relative min-h-[380px] md:min-h-[460px] mb-16 rounded-3xl overflow-hidden border border-white/10">
-        <img
-          src="/professional-foot-care-treatment-spa-luxury-wellne.jpg"
-          alt="DermaFuß Banner"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
-
-        {/** Variants d'animation Framer Motion */}
-        {/** Container avec stagger pour les cartes */}
-        <motion.div
-          initial="hidden"
-          animate="show"
-          variants={{
-            hidden: { opacity: 0 },
-            show: {
-              opacity: 1,
-              transition: { staggerChildren: 0.15 }
-            }
-          }}
-          className="relative z-10 p-6 md:p-10"
-        >
-          {/* En-tête et description de la fondatrice */}
-          <div className="max-w-2xl space-y-3 mb-8">
-            <motion.h3
-              variants={{ hidden: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0 } }}
-              className="text-white text-xl md:text-2xl font-semibold"
-            >
-              Über die Gründerin
-            </motion.h3>
-            <motion.p
-              variants={{ hidden: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0 } }}
-              className="text-white/85 text-sm md:text-base"
-            >
-              Frau K. Mefo ist examinierte Pflegefachkraft mit mehreren Jahren Erfahrung im Bereich der medizinischen
-              Pflege. Sie absolvierte eine Fachausbildung in professioneller Fußpflege und befindet sich aktuell in der
-              Ausbildung zur Podologin.
-            </motion.p>
-          </div>
-
-          {/* Trois cartes de valeur concises */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    return (
+        <div ref={containerRef} className="py-20">
             <motion.div
-              variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}
-              className="rounded-2xl p-6 backdrop-blur-md bg-white/10 border border-white/15 shadow-[0_12px_40px_rgb(0,0,0,0.25)]"
+                initial="hidden"
+                animate="show"
+                variants={{
+                    hidden: { opacity: 0, scale: 0.95 },
+                    show: {
+                        opacity: 1,
+                        scale: 1,
+                        transition: { duration: 0.5, ease: "easeInOut" }
+                    }
+                }}
+                className="relative min-h-[380px] md:min-h-[460px] mb-16 rounded-3xl overflow-hidden border border-white/10"
             >
-              <div className="text-white font-medium text-base">Medizinische Kompetenz und Präzision</div>
+                <img
+                    src="/kevinelogo.png"
+                    alt="DermaFuß Banner"
+                    className="absolute inset-0 h-full w-full object-cover opacity-70"
+                />
+                <h2 className="absolute top-4 left-4 text-white text-2xl font-bold">Willkommen bei DermaFuß</h2>
+                <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-700/70 to-gray-500/50" />
+                <div className="absolute inset-0 bg-gradient-to-t from-green-800/80 via-green-600/60 to-transparent" />
+                <motion.div
+                    initial="hidden"
+                    animate="show"
+                    variants={{
+                        hidden: { opacity: 0 },
+                        show: {
+                            opacity: 1,
+                            transition: { staggerChildren: 0.15 }
+                        }
+                    }}
+                    className="relative z-10 p-6 md:p-10"
+                >
+                    <div className="max-w-2xl space-y-3 mb-8">
+                        <motion.h3
+                            variants={{ hidden: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0 } }}
+                            className="text-white text-xl md:text-2xl font-semibold"
+                        >
+                            Über die Gründerin
+                        </motion.h3>
+                        <motion.p
+                            variants={{ hidden: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0 } }}
+                            className="text-white/90 text-sm md:text-base"
+                        >
+                            Frau K. Mefo ist examinierte Pflegefachkraft mit mehreren Jahren Erfahrung im Bereich der medizinischen
+                            Pflege. Sie absolvierte eine Fachausbildung in professioneller Fußpflege und befindet sich aktuell in der
+                            Ausbildung zur Podologin.
+                        </motion.p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {features.map((feature, index) => (
+                            <motion.div
+                                key={index}
+                                variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}
+                                className="rounded-2xl p-6 backdrop-blur-md bg-white/10 border border-white/15 shadow-[0_12px_40px_rgb(0,0,0,0.25)]"
+                                data-animate
+                            >
+                                <div className="flex items-center">
+                                    <feature.icon className="h-6 w-6 text-white mr-2" />
+                                    <div className="text-white font-medium text-base">{feature.title}</div>
+                                </div>
+                                <p className="text-white/90 text-sm">{feature.description}</p>
+                            </motion.div>
+                        ))}
+                    </div>
+                </motion.div>
             </motion.div>
 
-            <motion.div
-              variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}
-              className="rounded-2xl p-6 backdrop-blur-md bg-white/10 border border-white/15 shadow-[0_12px_40px_rgb(0,0,0,0.25)]"
-            >
-              <div className="text-white font-medium text-base">Einfühlungsvermögen für jeden Kunden</div>
-            </motion.div>
-
-            <motion.div
-              variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}
-              className="rounded-2xl p-6 backdrop-blur-md bg-white/10 border border-white/15 shadow-[0_12px_40px_rgb(0,0,0,0.25)]"
-            >
-              <div className="text-white font-medium text-base">Individuelle und hochwertige Behandlung</div>
-            </motion.div>
-          </div>
-        </motion.div>
-      </div>
-      {/* Sections détaillées supprimées pour une expérience plus concise */}
-    </div>
-  )
+        </div>
+    );
 }
-

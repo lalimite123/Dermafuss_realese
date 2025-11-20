@@ -20,14 +20,14 @@ export function HeroSection() {
   }, []);
 
   return (
-      <div className="mt-1 grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-12 min-h-[500px]"  >
+      <div className="mt-1 grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-12 min-h-[420px] sm:min-h-[520px] lg:min-h-[680px] items-stretch"  >
       {/* Featured Service Card - Takes full height */}
-      <div className="lg:col-span-2">
+      <div className="lg:col-span-2 h-auto lg:h-full">
         <HeroService/>
       </div>
 
       {/* Booking Card - Takes full height on the right */}
-      <div className="lg:col-span-1">
+      <div className="lg:col-span-1 h-auto lg:h-full">
         <BookingCard />
       </div>
       </div>

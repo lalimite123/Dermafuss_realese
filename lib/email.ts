@@ -117,7 +117,7 @@ export async function sendBookingEmails(booking: Booking) {
     date: booking.date,
     time: booking.time,
     durationMinutes: 60,
-    location: "DermaFuß Praxis",
+    location: "Gießener Str. 10, 35457 Lollar",
   })
 
   const attachments = [

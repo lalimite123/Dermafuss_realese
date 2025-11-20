@@ -15,7 +15,7 @@ export function PhilosophySection() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Philosophy Card */}
-        <Card className="p-6 lg:p-8 shadow-md">
+        <Card className="p-6 lg:p-8 shadow-lg transition-shadow duration-300 hover:shadow-xl">
           <div className="flex items-center gap-3 mb-4">
             <Heart className="h-8 w-8 text-primary" />
             <h3 className="text-2xl font-semibold">Unsere Philosophie</h3>
@@ -30,7 +30,7 @@ export function PhilosophySection() {
         </Card>
 
         {/* Hygiene Concept Card */}
-        <Card className="p-6 lg:p-8 shadow-md bg-gradient-to-br from-primary/10 to-transparent">
+        <Card className="p-6 lg:p-8 shadow-lg transition-shadow duration-300 hover:shadow-xl bg-gradient-to-br from-primary/10 to-transparent">
           <div className="flex items-center gap-3 mb-4">
             <Shield className="h-8 w-8 text-primary" />
             <h3 className="text-2xl font-semibold">Hygienekonzept</h3>
@@ -49,7 +49,7 @@ export function PhilosophySection() {
 
       {/* Values Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <Card className="p-6 shadow-md text-center hover:shadow-lg transition-shadow">
+        <Card className="p-6 shadow-lg transition-shadow duration-300 hover:shadow-xl text-center">
           <Award className="h-10 w-10 text-primary mx-auto mb-3" />
           <h4 className="font-semibold mb-2">Fachkompetenz</h4>
           <p className="text-sm text-muted-foreground leading-relaxed">
@@ -57,7 +57,7 @@ export function PhilosophySection() {
           </p>
         </Card>
 
-        <Card className="p-6 shadow-md text-center hover:shadow-lg transition-shadow">
+        <Card className="p-6 shadow-lg transition-shadow duration-300 hover:shadow-xl text-center">
           <Shield className="h-10 w-10 text-primary mx-auto mb-3" />
           <h4 className="font-semibold mb-2">Hygienestandards</h4>
           <p className="text-sm text-muted-foreground leading-relaxed">
@@ -65,7 +65,7 @@ export function PhilosophySection() {
           </p>
         </Card>
 
-        <Card className="p-6 shadow-md text-center hover:shadow-lg transition-shadow">
+        <Card className="p-6 shadow-lg transition-shadow duration-300 hover:shadow-xl text-center">
           <Sparkles className="h-10 w-10 text-primary mx-auto mb-3" />
           <h4 className="font-semibold mb-2">Ruhige Atmosphäre</h4>
           <p className="text-sm text-muted-foreground leading-relaxed">
@@ -73,7 +73,7 @@ export function PhilosophySection() {
           </p>
         </Card>
 
-        <Card className="p-6 shadow-md text-center hover:shadow-lg transition-shadow">
+        <Card className="p-6 shadow-lg transition-shadow duration-300 hover:shadow-xl text-center">
           <Heart className="h-10 w-10 text-primary mx-auto mb-3" />
           <h4 className="font-semibold mb-2">Vertrauensvolle Betreuung</h4>
           <p className="text-sm text-muted-foreground leading-relaxed">

@@ -17,21 +17,21 @@ export function Navigation() {
         }
     }
 
-  return (
-    <nav className="sticky top-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
-      <div className="container mx-auto px-4 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <button
-            onClick={() => scrollToSection("home")}
-            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
-          >
-            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-primary">
-              <Heart className="h-5 w-5 text-primary-foreground" />
-            </div>
-                      <div className="flex h-20 w-20 md:h-16 md:w-20 items-center justify-center rounded-2xl overflow-hidden">
-                          <img src="/kevinelogo.png" alt="Logo" className="h-full w-full object-contain" />
-                      </div>
-          </button>
+    return (
+        <nav className="sticky top-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
+            <div className="container mx-auto px-4 lg:px-8">
+                <div className="flex items-center justify-between h-16">
+                    <button
+                        onClick={() => scrollToSection("home")}
+                        className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer"
+                    >
+                        {/*<div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-primary">*/}
+                        {/*    <Heart className="h-5 w-5 text-primary-foreground" />*/}
+                        {/*</div>*/}
+                        <div className="flex h-20 w-20 md:h-16 md:w-20 items-center justify-center rounded-2xl overflow-hidden">
+                            <img src="/kevinelogo.png" alt="Logo" className="h-full w-full object-contain" />
+                        </div>
+                    </button>
 
                     <div className="hidden md:flex items-center gap-1">
                         {["about", "services", "philosophy", "contact"].map(section => (
@@ -47,7 +47,7 @@ export function Navigation() {
 
                     <div className="flex items-center gap-2">
                         <Button variant="ghost" size="icon" className="rounded-full cursor-pointer" asChild>
-                            <a href="tel:015784523671">
+                            <a href="tel:+4915565725090">
                                 <Phone className="h-5 w-5" />
                             </a>
                         </Button>

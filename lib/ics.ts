@@ -5,7 +5,7 @@ export function generateICS({
   date, // YYYY-MM-DD
   time, // HH:mm
   durationMinutes = 60,
-  location = "DermaFuß – Klinik",
+  location = "Gießener Str. 10, 35457 Lollar",
 }: {
   uid: string
   title: string
