@@ -9,7 +9,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Calendar } from "@/components/ui/calendar"
 import { Clock, User, Check, AlertCircle, Calendar as CalendarIcon, Phone, Mail, MessageSquare, Sparkles } from "lucide-react"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { motion } from "framer-motion"
+
 
 export default function BookingSection() {
   const [step, setStep] = useState(1)
@@ -531,13 +531,7 @@ export default function BookingSection() {
           </div>
 
           {/* Sidebar */}
-          <motion.div
-            className="space-y-3"
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.15 }}
-            transition={{ duration: 0.35, ease: "easeOut" }}
-          >
+          <div className="space-y-3">
             {/* Important Notes */}
             <Card className="overflow-hidden shadow-xl backdrop-blur-xl bg-gradient-to-br from-primary/5 via-card/80 to-card/80 border-primary/20 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 group">
               <div className="p-4 space-y-3">
@@ -549,13 +543,7 @@ export default function BookingSection() {
                 </div>
                 
                 <div className="space-y-3 text-sm text-muted-foreground">
-                  <motion.div
-                    className="flex gap-3 p-3 rounded-lg bg-card/50 backdrop-blur-sm transition-all duration-300 hover:bg-card/80"
-                    initial={{ opacity: 0, y: 12 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false, amount: 0.2 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
-                  >
+                  <div className="flex gap-3 p-3 rounded-lg bg-card/50 backdrop-blur-sm transition-all duration-300 hover:bg-card/80">
                     <Phone className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                     <p>
                       Termine auch telefonisch oder per WhatsApp unter{" "}
@@ -563,34 +551,16 @@ export default function BookingSection() {
                         +49 1556 572 5090
                       </a>
                     </p>
-                  </motion.div>
-                  <motion.div
-                    className="flex gap-3 p-3 rounded-lg bg-card/50 backdrop-blur-sm transition-all duration-300 hover:bg-card/80"
-                    initial={{ opacity: 0, y: 12 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false, amount: 0.2 }}
-                    transition={{ duration: 0.3, ease: "easeOut", delay: 0.04 }}
-                  >
+                  </div>
+                  <div className="flex gap-3 p-3 rounded-lg bg-card/50 backdrop-blur-sm transition-all duration-300 hover:bg-card/80">
                     <Clock className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                     <p>Bitte pünktlich erscheinen. Bei Verhinderung 24h vorher absagen.</p>
-                  </motion.div>
-                  <motion.div
-                    className="flex gap-2 p-3 rounded-lg bg-card/50 backdrop-blur-sm transition-all duration-300 hover:bg-card/80"
-                    initial={{ opacity: 0, y: 12 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false, amount: 0.2 }}
-                    transition={{ duration: 0.3, ease: "easeOut", delay: 0.08 }}
-                  >
+                  </div>
+                  <div className="flex gap-2 p-3 rounded-lg bg-card/50 backdrop-blur-sm transition-all duration-300 hover:bg-card/80">
                     <Sparkles className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                     <p>Aus hygienischen Gründen bitte die Füße vor dem Termin kurz reinigen.</p>
-                  </motion.div>
-                  <motion.div
-                    className="flex gap-1 p-3 rounded-lg bg-card/50 backdrop-blur-sm transition-all duration-300 hover:bg-card/80"
-                    initial={{ opacity: 0, y: 12 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false, amount: 0.2 }}
-                    transition={{ duration: 0.3, ease: "easeOut", delay: 0.12 }}
-                  >
+                  </div>
+                  <div className="flex gap-1 p-3 rounded-lg bg-card/50 backdrop-blur-sm transition-all duration-300 hover:bg-card/80">
                     <Clock className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                     <div>
                       <p className="font-medium">Öffnungszeiten</p>
@@ -605,18 +575,12 @@ export default function BookingSection() {
                         </div>
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
                 </div>
               </div>
             </Card>
 
             {/* Contact Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.15 }}
-              transition={{ duration: 0.35, ease: "easeOut", delay: 0.06 }}
-            >
             <Card className="shadow-xl backdrop-blur-xl bg-gradient-to-br from-primary/10 via-primary/5 to-card/80 border-primary/20 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 group">
               <div className="p-4">
                 <div className="flex items-center gap-3 mb-4">
@@ -657,8 +621,7 @@ export default function BookingSection() {
                 </div>
               </div>
             </Card>
-            </motion.div>
-          </motion.div>
+          </div>
         </div>
       </div>
 
