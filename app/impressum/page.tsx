@@ -1,74 +1,102 @@
-export const metadata = {
-  title: "Impressum | DermaFuß",
-  description: "Rechtliche Angaben gemäß § 5 TMG",
+import { Phone, Mail } from "lucide-react"
+
+const Footer = () => {
+    return (
+        <footer className="bg-gray-800 text-white py-16 mt-20">
+            <div className="max-w-7xl mx-auto px-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                    <div className="space-y-4">
+                        <div className="flex items-center gap-4">
+                            <div className="h-20 w-20 rounded-full overflow-hidden flex items-center justify-center">
+                                <img src="/kevinelogo.png" alt="Logo" className="h-full w-full object-contain" />
+                            </div>
+                        </div>
+                        <p className="text-gray-300 leading-relaxed">
+                            Professionelle Fachfußpflege in Lollar. Ihre Fußgesundheit ist unsere Priorität.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4 className="font-bold text-lg mb-4">Navigation</h4>
+                        <ul className="space-y-2 text-gray-300">
+                            <li>
+                                <a href="#home" className="hover:text-[#9BB8AC] transition-colors">
+                                    Startseite
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#about" className="hover:text-[#9BB8AC] transition-colors">
+                                    Über uns
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#services" className="hover:text-[#9BB8AC] transition-colors">
+                                    Leistungen
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#booking" className="hover:text-[#9BB8AC] transition-colors">
+                                    Termin buchen
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#contact" className="hover:text-[#9BB8AC] transition-colors">
+                                    Kontakt
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 className="font-bold text-lg mb-4">Leistungen</h4>
+                        <ul className="space-y-2 text-gray-300">
+                            <li>Nagelbehandlung</li>
+                            <li>Hornhautentfernung</li>
+                            <li>Hühneraugen-Behandlung</li>
+                            <li>Fußmassage</li>
+                            <li>Seniorenbetreuung</li>
+                            <li>Pflegeberatung</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 className="font-bold text-lg mb-4">Kontakt</h4>
+                        <ul className="space-y-3 text-gray-300">
+                            <li>Gießener Straße 10</li>
+                            <li>35457 Lollar</li>
+                            <li className="pt-2 flex items-center gap-2">
+                                <Phone className="h-5 w-5" />
+                                <a href="tel:015565725090" className="hover:text-[#9BB8AC] transition-colors">
+                                    +49 1556 572 5090
+                                </a>
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <Mail className="h-5 w-5" />
+                                <span>info@dermafuss.de</span>
+                            </li>
+                        </ul>
+                        <div className="mt-4">
+                            <p className="text-sm font-semibold mb-2">Öffnungszeiten:</p>
+                            <p className="text-sm text-gray-300">Mo-Fr: 09:00 - 18:00</p>
+                            <p className="text-sm text-gray-300">Sa: nach Vereinbarung</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="border-t border-gray-600 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p className="text-gray-400 text-sm">© 2025 DermaFuß. Alle Rechte vorbehalten.</p>
+                    <div className="flex gap-6 items-center text-sm text-gray-400">
+                        <a href="/impressum" className="hover:text-[#9BB8AC] transition-colors">
+                            Impressum
+                        </a>
+                        <a href="https://termiconsult.com/" target="_blank" rel="noopener noreferrer" className="text-gray-400 underline hover:text-[#9BB8AC] transition-colors">
+                            Entworfen von TermiConsult UG ❤️
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    )
 }
 
-export default function ImpressumPage() {
-  return (
-    <main className="container mx-auto px-4 py-10 lg:px-8">
-      <section className="prose prose-neutral max-w-3xl">
-        <h1 className="text-3xl font-bold mb-4">Impressum</h1>
-        <p className="text-muted-foreground mb-6">Rechtliche Angaben gemäß § 5 TMG</p>
-
-        <h2 className="text-xl font-semibold mt-6 mb-2">Diensteanbieter</h2>
-        <p>
-          DermaFuß<br />
-          Gießener Straße 10<br />
-          35457 Lollar
-        </p>
-
-        <h2 className="text-xl font-semibold mt-6 mb-2">Kontakt</h2>
-        <p>
-          Telefon: 0157 845 236 71<br />
-          E‑Mail: info@dermafuss.de
-        </p>
-
-        <h2 className="text-xl font-semibold mt-6 mb-2">Vertretungsberechtigt</h2>
-        <p>
-          Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV: DermaFuß
-        </p>
-
-        <h2 className="text-xl font-semibold mt-6 mb-2">Umsatzsteuer</h2>
-        <p>
-          Umsatzsteuer‑Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: wird ergänzt
-        </p>
-
-        <h2 className="text-xl font-semibold mt-6 mb-2">Berufsrechtliche Angaben</h2>
-        <p>
-          Angaben zur berufsrechtlichen Regelung und zuständigen Kammer werden ergänzt.
-        </p>
-
-        <h2 className="text-xl font-semibold mt-6 mb-2">Haftung für Inhalte</h2>
-        <p>
-          Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den
-          allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch
-          nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach
-          Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
-        </p>
-
-        <h2 className="text-xl font-semibold mt-6 mb-2">Haftung für Links</h2>
-        <p>
-          Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss
-          haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.
-        </p>
-
-        <h2 className="text-xl font-semibold mt-6 mb-2">Urheberrecht</h2>
-        <p>
-          Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem
-          deutschen Urheberrecht. Beiträge Dritter sind als solche gekennzeichnet.
-        </p>
-
-        <h2 className="text-xl font-semibold mt-6 mb-2">Streitbeilegung</h2>
-        <p>
-          Die Europäische Kommission stellt eine Plattform zur Online‑Streitbeilegung (OS) bereit:
-          <a className="text-primary" href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noreferrer">https://ec.europa.eu/consumers/odr</a>.
-        </p>
-
-        <p className="text-sm text-muted-foreground mt-8">
-          Hinweis: Diese Seite dient als Platzhalter. Rechtliche Angaben (z. B. USt‑ID, HRB, Vertreter) sollten
-          vollständig ergänzt werden.
-        </p>
-      </section>
-    </main>
-  )
-}
+export default Footer
