@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import Script from "next/script"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
+import IosInstallHelper from "@/components/ios-install-helper"
 
 export const metadata: Metadata = {
   title: "Dermafuss Lollar | Professionelle Fußpflege & Medizinische Pediküre",
@@ -94,6 +95,7 @@ export default function RootLayout({
           __html:
             "(function(){var d;window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();d=e;var h=function(){if(d){try{d.prompt();var c=d.userChoice;c&&c.finally(function(){d=null})}catch(_){} }document.removeEventListener('click',h);document.removeEventListener('touchstart',h)};document.addEventListener('click',h,{once:true});document.addEventListener('touchstart',h,{once:true})});window.addEventListener('appinstalled',function(){d=null});})();",
         }} />
+        <IosInstallHelper />
       </body>
     </html>
   )
