@@ -81,7 +81,7 @@ export default function RootLayout({
         <link rel="canonical" href="https://derma-fuss.de" />
         <meta name="theme-color" content="#9BB8AC" />
         <link rel="manifest" href="/manifest.json" type="application/manifest+json" />
-        <link rel="apple-touch-icon" href="/apple-icon.png" sizes="180x180" />
+        <link rel="apple-touch-icon" href="/kevinelogo.png" sizes="180x180" />
       </head>
       <body className={`font-sans antialiased`}>
         {children}
