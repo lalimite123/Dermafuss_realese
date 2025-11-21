@@ -2,11 +2,13 @@
 
 import { Button } from "@/components/ui/button"
 import { Heart, Menu, Phone, Calendar } from "lucide-react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export function Navigation() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const [selectedSection, setSelectedSection] = useState<string | null>(null)
+    const [canInstall, setCanInstall] = useState(false)
+    const [pwaPrompt, setPwaPrompt] = useState<any>(null)
 
     const scrollToSection = (id: string, key?: string) => {
         const element = document.getElementById(id)
@@ -15,6 +17,34 @@ export function Navigation() {
         }
         setMobileMenuOpen(false)
         setSelectedSection(key ?? id)
+    }
+
+    useEffect(() => {
+        const handler = (e: any) => {
+            e.preventDefault()
+            setPwaPrompt(e)
+            setCanInstall(true)
+        }
+        const installed = () => {
+            setCanInstall(false)
+            setPwaPrompt(null)
+        }
+        window.addEventListener("beforeinstallprompt", handler)
+        window.addEventListener("appinstalled", installed)
+        return () => {
+            window.removeEventListener("beforeinstallprompt", handler)
+            window.removeEventListener("appinstalled", installed)
+        }
+    }, [])
+
+    const installApp = async () => {
+        if (!pwaPrompt) return
+        try {
+            await pwaPrompt.prompt()
+            const choice = await pwaPrompt.userChoice
+            setPwaPrompt(null)
+            setCanInstall(false)
+        } catch {}
     }
 
     return (
@@ -51,6 +81,15 @@ export function Navigation() {
                                 <Phone className="h-5 w-5" />
                             </a>
                         </Button>
+                        {canInstall && (
+                            <Button
+                                variant="outline"
+                                className="hidden md:flex rounded-full cursor-pointer"
+                                onClick={installApp}
+                            >
+                                App installieren
+                            </Button>
+                        )}
                         <Button
                             variant="ghost"
                             size="icon"
@@ -81,6 +120,11 @@ export function Navigation() {
                             <Button className="mt-2 transition-transform duration-300 transform hover:scale-105" onClick={() => scrollToSection("booking", "booking")}>
                                 Termin buchen        <Calendar className="ml-2 h-5 w-5" />
                             </Button>
+                            {canInstall && (
+                                <Button className="mt-2" onClick={installApp}>
+                                    App installieren
+                                </Button>
+                            )}
                         </div>
                     </div>
                 )}

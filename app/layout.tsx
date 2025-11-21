@@ -90,6 +90,10 @@ export default function RootLayout({
           __html:
             "if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('/sw.js').catch(() => {}); }); }",
         }} />
+        <Script id="pwa-install" strategy="afterInteractive" dangerouslySetInnerHTML={{
+          __html:
+            "(function(){var d;window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();d=e;var h=function(){if(d){try{d.prompt();var c=d.userChoice;c&&c.finally(function(){d=null})}catch(_){} }document.removeEventListener('click',h);document.removeEventListener('touchstart',h)};document.addEventListener('click',h,{once:true});document.addEventListener('touchstart',h,{once:true})});window.addEventListener('appinstalled',function(){d=null});})();",
+        }} />
       </body>
     </html>
   )

@@ -1,27 +1,40 @@
 {
+  "id": "/",
   "name": "DermaFuss Lollar",
   "short_name": "DermaFuss",
-  "start_url": "/",
+  "description": "Professionelle medizinische Fußpflege und Pediküre in Lollar.",
+  "start_url": "/?source=pwa",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#f8fafc",
   "theme_color": "#9BB8AC",
+  "categories": ["health", "beauty", "medical"],
   "icons": [
     {
       "src": "/kevinelogo.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "/kevinelogo.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/landing1.jpg",
+      "sizes": "1080x1920",
+      "type": "image/jpeg"
     },
     {
-      "src": "/kevinelogo.png",
-      "sizes": "180x180",
-      "type": "image/png"
+      "src": "/landing2.jpg",
+      "sizes": "1080x1920",
+      "type": "image/jpeg"
     }
-  ]
+  ],
+  "prefer_related_applications": false
 }
