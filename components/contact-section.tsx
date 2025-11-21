@@ -15,7 +15,7 @@ export function ContactSection() {
                 transition={{ duration: 0.4, ease: "easeOut" }}
                 className="space-y-5 mt-10"
             >
-                <h2 className="text-3xl lg:text-4xl font-bold mb-3 text-balance">Kontakt & Anfahrt</h2>
+                <h2 id="contact-title" className="text-3xl lg:text-4xl font-bold mb-3 text-balance scroll-mt-24">Kontakt & Anfahrt</h2>
                 <p className="text-foreground/90 text-lg text-pretty leading-relaxed">
                     Besuchen Sie uns im Herzen von Lollar
                 </p>

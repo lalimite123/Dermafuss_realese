@@ -65,7 +65,7 @@ export function AboutSection() {
     }, [])
 
     return (
-        <div ref={containerRef} className="py-20">
+        <div ref={containerRef} className="py-12">
             <motion.div
                 initial="hidden"
                 animate="show"
@@ -77,7 +77,7 @@ export function AboutSection() {
                         transition: { duration: 0.5, ease: "easeInOut" }
                     }
                 }}
-                className="relative min-h-[380px] md:min-h-[460px] mb-16 rounded-3xl overflow-hidden border border-white/10"
+                className="relative min-h-[380px] md:min-h-[460px] mb-4 rounded-3xl overflow-hidden border border-white/10"
             >
                 <img
                     src="/kevinelogo.png"

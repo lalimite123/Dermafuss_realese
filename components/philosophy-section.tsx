@@ -3,18 +3,13 @@
 import { Card } from "@/components/ui/card"
 import { Heart, Shield, Sparkles, Award } from "lucide-react"
 import { motion } from "framer-motion"
+ 
 
 export function PhilosophySection() {
   return (
-      <motion.div
-        initial={{ opacity: 0, y: 12 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-        className="space-y-6 mt-19"
-      >
+      <div className="space-y-4">
       <div>
-        <h2 className="text-3xl lg:text-4xl font-bold mb-3 text-balance">Unsere Philosophie</h2>
+        <h2 id="philosophy-title" className="text-3xl lg:text-4xl font-bold mb-3 text-balance scroll-mt-24">Unsere Philosophie</h2>
         <p className="text-muted-foreground text-lg text-pretty leading-relaxed">
           Sorgfalt, Hygiene und Vertrauen stehen bei uns an erster Stelle
         </p>
@@ -22,8 +17,9 @@ export function PhilosophySection() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Philosophy Card */}
-        <Card className="p-6 lg:p-8 shadow-lg transition-shadow duration-300 hover:shadow-xl">
-          <div className="flex items-center gap-3 mb-4">
+        <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, ease: "easeOut" }}>
+        <Card className="p-5 lg:p-7 shadow-lg transition-shadow duration-300 hover:shadow-xl">
+          <div className="flex items-center gap-3 mb-2">
             <Heart className="h-8 w-8 text-primary" />
             <h3 className="text-2xl font-semibold">Unsere Philosophie</h3>
           </div>
@@ -35,8 +31,10 @@ export function PhilosophySection() {
             ermöglichen, die nicht nur die Füße pflegt, sondern auch das Wohlbefinden stärkt.
           </p>
         </Card>
+        </motion.div>
 
         {/* Hygiene Concept Card */}
+        <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, ease: "easeOut", delay: 0.06 }}>
         <Card className="p-6 lg:p-8 shadow-lg transition-shadow duration-300 hover:shadow-xl bg-gradient-to-br from-primary/10 to-transparent">
           <div className="flex items-center gap-3 mb-4">
             <Shield className="h-8 w-8 text-primary" />
@@ -52,10 +50,12 @@ export function PhilosophySection() {
             </p>
           </div>
         </Card>
+        </motion.div>
       </div>
-
+      
       {/* Values Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, ease: "easeOut" }}>
         <Card className="p-6 shadow-lg transition-shadow duration-300 hover:shadow-xl text-center">
           <Award className="h-10 w-10 text-primary mx-auto mb-3" />
           <h4 className="font-semibold mb-2">Fachkompetenz</h4>
@@ -63,7 +63,9 @@ export function PhilosophySection() {
             Durch medizinische Ausbildung und kontinuierliche Weiterbildung
           </p>
         </Card>
+        </motion.div>
 
+        <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, ease: "easeOut", delay: 0.06 }}>
         <Card className="p-6 shadow-lg transition-shadow duration-300 hover:shadow-xl text-center">
           <Shield className="h-10 w-10 text-primary mx-auto mb-3" />
           <h4 className="font-semibold mb-2">Hygienestandards</h4>
@@ -71,7 +73,9 @@ export function PhilosophySection() {
             Höchste Standards bei Sterilisation und Desinfektion
           </p>
         </Card>
+        </motion.div>
 
+        <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, ease: "easeOut", delay: 0.12 }}>
         <Card className="p-6 shadow-lg transition-shadow duration-300 hover:shadow-xl text-center">
           <Sparkles className="h-10 w-10 text-primary mx-auto mb-3" />
           <h4 className="font-semibold mb-2">Ruhige Atmosphäre</h4>
@@ -79,7 +83,9 @@ export function PhilosophySection() {
             Freundliche und entspannende Umgebung für Ihr Wohlbefinden
           </p>
         </Card>
+        </motion.div>
 
+        <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, ease: "easeOut", delay: 0.18 }}>
         <Card className="p-6 shadow-lg transition-shadow duration-300 hover:shadow-xl text-center">
           <Heart className="h-10 w-10 text-primary mx-auto mb-3" />
           <h4 className="font-semibold mb-2">Vertrauensvolle Betreuung</h4>
@@ -87,7 +93,8 @@ export function PhilosophySection() {
             Besonders für ältere oder empfindliche Personen
           </p>
         </Card>
-      </div>
+        </motion.div>
       </motion.div>
+      </div>
   )
 }

@@ -1,0 +1,27 @@
+{
+  "name": "DermaFuss Lollar",
+  "short_name": "DermaFuss",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f8fafc",
+  "theme_color": "#9BB8AC",
+  "icons": [
+    {
+      "src": "/kevinelogo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/kevinelogo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

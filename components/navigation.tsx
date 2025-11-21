@@ -8,13 +8,13 @@ export function Navigation() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const [selectedSection, setSelectedSection] = useState<string | null>(null)
 
-    const scrollToSection = (id: string) => {
+    const scrollToSection = (id: string, key?: string) => {
         const element = document.getElementById(id)
         if (element) {
             element.scrollIntoView({ behavior: "smooth" })
-            setMobileMenuOpen(false)
-            setSelectedSection(id) // Set the selected section
         }
+        setMobileMenuOpen(false)
+        setSelectedSection(key ?? id)
     }
 
     return (
@@ -39,7 +39,7 @@ export function Navigation() {
                                 key={section}
                                 variant="ghost"
                                 className={`rounded-full cursor-pointer ${selectedSection === section ? 'bg-primary text-primary-foreground' : ''}`}
-                                onClick={() => scrollToSection(section)}>
+                                onClick={() => scrollToSection(section === "philosophy" ? "philosophy-title" : section === "contact" ? "contact-title" : section, section)}>
                                 {section === "about" ? "Über uns" : section === "services" ? "Leistungen" : section === "philosophy" ? "Philosophie" : "Kontakt"}
                             </Button>
                         ))}
@@ -74,11 +74,11 @@ export function Navigation() {
                                     key={section}
                                     variant="ghost"
                                     className={`justify-start ${selectedSection === section ? 'bg-primary text-primary-foreground' : ''}`}
-                                    onClick={() => scrollToSection(section)}>
+                                    onClick={() => scrollToSection(section === "philosophy" ? "philosophy-title" : section === "contact" ? "contact-title" : section, section)}>
                                     {section === "about" ? "Über uns" : section === "services" ? "Leistungen" : section === "philosophy" ? "Philosophie" : "Kontakt"}
                                 </Button>
                             ))}
-                            <Button className="mt-2 transition-transform duration-300 transform hover:scale-105" onClick={() => scrollToSection("booking")}>
+                            <Button className="mt-2 transition-transform duration-300 transform hover:scale-105" onClick={() => scrollToSection("booking", "booking")}>
                                 Termin buchen        <Calendar className="ml-2 h-5 w-5" />
                             </Button>
                         </div>

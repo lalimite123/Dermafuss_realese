@@ -1,13 +1,14 @@
 import type React from "react"
 import type { Metadata } from "next"
+import Script from "next/script"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "Dermafuss Berlin | Professionelle Fußpflege & Medizinische Pediküre",
-  description: "Dermafuss Berlin bietet professionelle medizinische Fußpflege, Pediküre und Fußkosmetik. Behandlung von Hühneraugen, eingewachsenen Nägeln, Hornhaut & Nagelpilz. Jetzt Termin vereinbaren!",
-  keywords: "Fußpflege Berlin, medizinische Fußpflege, Pediküre Berlin, Podologie, Hühneraugen entfernen, eingewachsene Nägel behandeln, Hornhautentfernung, Nagelpilz Behandlung, Fußkosmetik, diabetischer Fuß",
-  authors: [{ name: "Dermafuss Berlin" }],
+  title: "Dermafuss Lollar | Professionelle Fußpflege & Medizinische Pediküre",
+  description: "Dermafuss Lollar bietet professionelle medizinische Fußpflege, Pediküre und Fußkosmetik. Behandlung von Hühneraugen, eingewachsenen Nägeln, Hornhaut & Nagelpilz. Jetzt Termin vereinbaren!",
+  keywords: "Fußpflege Lollar, medizinische Fußpflege, Pediküre Lollar, Podologie, Hühneraugen entfernen, eingewachsene Nägel behandeln, Hornhautentfernung, Nagelpilz Behandlung, Fußkosmetik, diabetischer Fuß",
+  authors: [{ name: "Dermafuss Lollar" }],
   creator: "Dermafuss",
   publisher: "Dermafuss",
   generator: "termi-consult",
@@ -24,23 +25,23 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "de_DE",
-    url: "https://dermafuss.de",
-    siteName: "Dermafuss Berlin",
-    title: "Dermafuss Berlin | Professionelle Fußpflege & Medizinische Pediküre",
-    description: "Ihre Experten für medizinische Fußpflege in Berlin. Professionelle Behandlung von Fußproblemen, Pediküre und Fußkosmetik mit modernsten Methoden.",
+    url: "https://derma-fuss.de",
+    siteName: "Dermafuss Lollar",
+    title: "Derma-fuss Lollar | Professionelle Fußpflege & Medizinische Pediküre",
+    description: "Ihre Experten für medizinische Fußpflege in Lollar. Professionelle Behandlung von Fußproblemen, Pediküre und Fußkosmetik mit modernsten Methoden.",
     images: [
       {
         url: "/kevinelogo.png",
         width: 1200,
         height: 630,
-        alt: "Dermafuss Berlin - Professionelle Fußpflege",
+            alt: "Derma-fuss Lollar - Professionelle Fußpflege",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dermafuss Berlin | Professionelle Fußpflege & Medizinische Pediküre",
-    description: "Ihre Experten für medizinische Fußpflege in Berlin. Jetzt Termin vereinbaren!",
+      title: "Derma-fuss Lollar | Professionelle Fußpflege & Medizinische Pediküre",
+    description: "Ihre Experten für medizinische Fußpflege in Lollar. Jetzt Termin vereinbaren!",
     images: ["/kevinelogo.png"],
   },
   icons: {
@@ -52,12 +53,19 @@ export const metadata: Metadata = {
     shortcut: "/kevinelogo.png",
   },
   alternates: {
-    canonical: "https://dermafuss.de",
+    canonical: "https://derma-fuss.de",
   },
   verification: {
     // Ajoute ici tes codes de vérification si tu en as
     // google: "ton-code-google",
     // bing: "ton-code-bing",
+  },
+  manifest: "/manifest.json",
+  themeColor: "#9BB8AC",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Dermafuss Lollar",
   },
 }
 
@@ -70,11 +78,15 @@ export default function RootLayout({
     <html lang="de">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-        <link rel="canonical" href="https://dermafuss.de" />
+        <link rel="canonical" href="https://derma-fuss.de" />
       </head>
       <body className={`font-sans antialiased`}>
         {children}
         <Analytics />
+        <Script id="sw-register" strategy="afterInteractive" dangerouslySetInnerHTML={{
+          __html:
+            "if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('/sw.js').catch(() => {}); }); }",
+        }} />
       </body>
     </html>
   )
